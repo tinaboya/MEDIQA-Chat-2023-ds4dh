@@ -36,7 +36,7 @@ text_clf = joblib.load('classification_model.joblib')
 df_taska_test['section_header'] = list(text_clf.predict(X_test))  # preds, list
 df_taska_test.to_csv(args.file, index=False)
 
-openai.api_key = "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"
+openai.api_key = ""
 
 outputs = []
 
