@@ -9,4 +9,4 @@ decode_taskA_run2.sh taskA_testset.csv
 
 - The input is in the *.csv format of the original test files
 - The output files are in the output folder
-- The output files are named taskA_ds4dh_run1.csv and taskA_ds4dh_run1.csv
+- The output files are named taskA_ds4dh_run1.csv and taskA_ds4dh_run2.csv
