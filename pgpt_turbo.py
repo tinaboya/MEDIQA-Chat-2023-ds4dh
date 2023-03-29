@@ -47,14 +47,26 @@ for i, row in df_taska_test.iterrows():  # change this to the test set
     dict1 = {"role": "user", "content": "summarize \n" + train_row["dialogue"]}
     dict2 = {"role": "assistant", "content": train_row["section_text"]}  # "correct answer \n" + 
     dict3 = {"role": "user", "content": "summarize \n" + row["dialogue"]}
+    
+    try:
+      response = openai.ChatCompletion.create(
+          model="gpt-3.5-turbo",
+          messages=[dict1, dict2, dict3]
+      )
+      
+      output = response['choices'][0]['message']['content']
+      outputs.append(output)
 
-    response = openai.ChatCompletion.create(
-        model="gpt-3.5-turbo",
-        messages=[dict1, dict2, dict3]
-    )
-
-    output_text = response['choices'][0]['message']['content']
-    outputs.append(output_text)
+      continue  # continue the loop if the request succeeds
+      
+    except openai.error.RateLimitError as error:
+        wait_time = 2 ** i  # Backoff: wait for 2^i seconds before retrying
+        print(f"Request failed. Waiting for {wait_time} seconds before retrying...")
+        time.sleep(wait_time)
+    
+    else:
+      # If all retries fail, raise an exception
+      raise Exception("Unable to complete the request after multiple retries.")
 
 df_submission = pd.DataFrame({"TestID": df_taska_test['ID'], "SystemOutput1": df_taska_test["section_header"]})
 df_submission["SystemOutput2"] = outputs
