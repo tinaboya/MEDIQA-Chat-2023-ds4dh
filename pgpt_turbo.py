@@ -27,11 +27,11 @@ if args.file:
 else:
     print('No file provided')
 
-df_taska_train = pd.read_csv('TaskA-TrainingSet.csv', header=0)
+df_taska_train = pd.read_csv('./data/TaskA-TrainingSet.csv', header=0)
 df_taska_test = pd.read_csv(args.file, header=0)  # this input should be write as an args
 
 X_test = [" ".join(i.split()) for i in df_taska_test['dialogue']]
-text_clf = joblib.load('classification_model.joblib')
+text_clf = joblib.load('./model/classification_model.joblib')
 
 df_taska_test['section_header'] = list(text_clf.predict(X_test))  # preds, list
 df_taska_test.to_csv(args.file, index=False)
