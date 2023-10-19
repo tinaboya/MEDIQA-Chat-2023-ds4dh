@@ -5,8 +5,8 @@ Doing the following commands you are able to get quick-started:
 ```
 ./install.sh
 ./activate.sh
-decode_taskA_run1.sh taskA_testset.csv
-decode_taskA_run2.sh taskA_testset.csv
+decode_taskA_run1.sh ./data/taskA_testset.csv
+decode_taskA_run2.sh ./data/taskA_testset.csv
 ```
 
 - The input is in the *.csv format of the original test files
