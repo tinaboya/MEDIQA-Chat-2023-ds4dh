@@ -14,8 +14,6 @@ decode_taskA_run2.sh ./data/taskA_testset.csv
 - The output files are named taskA_ds4dh_run1.csv and taskA_ds4dh_run2.csv
 - openai.api_key = "", please add and use your key
 
-## Please Cite
-
 If you find this work useful, please consider citing the following paper:
 
 ```bibtex
