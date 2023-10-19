@@ -1,6 +1,6 @@
 # MEDIQA-Chat-2023-ds4dh
 
-Doing the following commands you are able to get quick-started:
+The following commands help you to get quick-started:
 
 ```
 ./install.sh
