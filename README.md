@@ -15,7 +15,6 @@ decode_taskA_run2.sh ./data/taskA_testset.csv
 
 
 ### Please cite
-If you find this work useful, please consider citing the following paper:
 
 ```bibtex
 @inproceedings{zhang-etal-2023-ds4dh,
